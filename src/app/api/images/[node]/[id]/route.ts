@@ -18,7 +18,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ node: st
       return new NextResponse('Image not found', { status: 404 });
     }
     
-    return new NextResponse(image.data, {
+    return new NextResponse(image.data as any, {
       status: 200,
       headers: {
         'Content-Type': image.contentType,
