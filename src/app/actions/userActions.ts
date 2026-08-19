@@ -11,7 +11,7 @@ export async function createUser(formData: FormData) {
   const name = formData.get('name') as string;
   const username = formData.get('username') as string;
   const password = formData.get('password') as string;
-  const role = formData.get('role') as string;
+  const role = formData.get('role') as 'admin' | 'kitchen' | 'supplier' | 'cashier';
   
   const existingUser = await User.findOne({ username });
   if (existingUser) throw new Error('Username already exists');
