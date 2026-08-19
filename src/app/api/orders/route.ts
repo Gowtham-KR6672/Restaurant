@@ -24,14 +24,14 @@ export async function POST(req: Request) {
         orderItems.push({
           menuItem: menuItem._id,
           quantity: item.quantity,
-          status: 'Pending'
+          status: 'Pending' as any
         });
       }
     }
 
     const trackingId = uuidv4().substring(0, 8).toUpperCase();
 
-    const newOrder = await Order.create({
+    const newOrder: any = await Order.create({
       trackingId,
       table: tableId,
       items: orderItems,
